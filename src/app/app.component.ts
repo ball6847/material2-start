@@ -74,7 +74,7 @@ export class AppComponent {
   isDarkTheme = false;
 
   constructor(iconRegistry: MdIconRegistry) {
-    iconRegistry.addSvgIconSetInNamespace('avatars', './assets/avatars.svg');
+    // iconRegistry.addSvgIconSetInNamespace('avatars', './assets/avatars.svg');
 
     this.selectedUser = this.users[0];
   }

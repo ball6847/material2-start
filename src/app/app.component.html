@@ -1,22 +1,18 @@
-<div fx-layout="column" fx-flex [class.dark-theme]="isDarkTheme">
+<div fxLayout="column" fxFlex [class.dark-theme]="isDarkTheme">
   <md-toolbar color="primary">
-    <div fx-layout="row" fx-flex fx-layout-align="space-between">
+    <div fxLayout="row" fxFlex fxLayoutAlign="space-between">
       <span>Angular Material 2 - Starter App</span>
       <button md-icon-button [md-menu-trigger-for]="menu">
-        <md-icon>more_vert</md-icon>
-      </button>
+          <md-icon>more_vert</md-icon>
+        </button>
     </div>
   </md-toolbar>
-  <md-menu #menu x-position="before">
-    <button md-menu-item (click)="isDarkTheme = !isDarkTheme">Dark Theme</button>
-  </md-menu>
-  <md-sidenav-layout fx-layout="row" fx-flex>
+  <md-sidenav-container fxLayout="row" fxFlex>
     <md-sidenav mode="side" opened>
       <md-tab-group>
         <md-tab label="Users">
           <md-nav-list>
             <md-list-item *ngFor="let user of users" (click)="selectedUser = user">
-              <md-icon svgIcon="avatars:{{user.avatar}}" class="avatar"></md-icon>
               <span>{{user.name}}</span>
             </md-list-item>
           </md-nav-list>
@@ -26,16 +22,20 @@
         </md-tab>
       </md-tab-group>
     </md-sidenav>
-    <div class="details" fx-flex fx-layout="column" fx-layout.gt-sm="row">
-      <md-card fx-flex="80">
-        <md-icon svgIcon="avatars:{{selectedUser.avatar}}" class="avatar"></md-icon>
+    
+    <md-menu #menu x-position="before">
+      <button md-menu-item (click)="isDarkTheme = !isDarkTheme">Dark Theme</button>
+    </md-menu>
+    
+    <div class="details" fxFlex fxLayout="column" fxLayout.gt-sm="row">
+      <md-card fxFlex="80">
         <h2>{{selectedUser.name}}</h2>
         <p>{{selectedUser.details}}</p>
       </md-card>
-      <md-card fx-flex>
+      <md-card fxFlex>
         <md-slide-toggle [(ngModel)]="selectedUser.isAdmin">Admin?</md-slide-toggle>
         <md-slide-toggle [(ngModel)]="selectedUser.isCool">Coooool??</md-slide-toggle>
       </md-card>
     </div>
-  </md-sidenav-layout>
+  </md-sidenav-container>
 </div>
